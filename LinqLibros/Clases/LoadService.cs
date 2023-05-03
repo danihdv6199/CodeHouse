@@ -1,4 +1,5 @@
-﻿using LinqLibros.Interfaz;
+﻿using LinqLibros.Entidades;
+using LinqLibros.Interfaz;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqLibros.Clases
+namespace LinqLibros.Entidades
 {
-  public class Book
+    public class Book
     {
         public string Title { get; set; }
         public int AuthorId { get; set; }
         public int PublicationDate { get; set; } // Yearint Sales { get; set; } //Millions 
         public int Sales { get; set; }
 
-        public Book(string title, int authorId, int publicationDate, int sales) 
+        public Book(string title, int authorId, int publicationDate, int sales)
         {
-            this.Title = title;
-            this.AuthorId = authorId; 
-            this.PublicationDate = publicationDate; 
-            this.Sales = sales; 
+            Title = title;
+            AuthorId = authorId;
+            PublicationDate = publicationDate;
+            Sales = sales;
         }
     }
 }

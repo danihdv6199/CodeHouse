@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqLibros.Clases
+namespace LinqLibros.Entidades
 {
     public class Autor
     {
         public int AuthorId { get; set; }
         public string Name { get; set; }
-        public Autor(int authorId, string name) 
+        public Autor(int authorId, string name)
         {
-            this.AuthorId = authorId; 
-            this.Name = name; 
+            AuthorId = authorId;
+            Name = name;
         }
     }
 }

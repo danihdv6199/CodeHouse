@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace LinqLibros.Interfaz
 {
-    public interface ILoadService
-    {
-        List<Autor> LoadAuthors();
-        List<Book> LoadBooks();
+    public interface IDataService
+	{
+		List<Book> GetTop3BookMaxSales();
+		List<Book> GetTop3BookMinSales();
+		List<Book> GetBooks50Years();
+		Book GetOldestBook();
 
 	}
 }
