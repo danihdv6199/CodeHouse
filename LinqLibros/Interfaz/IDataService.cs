@@ -13,6 +13,8 @@ namespace LinqLibros.Interfaz
 		List<Book> GetTop3BookMinSales();
 		List<Book> GetBooks50Years();
 		Book GetOldestBook();
+		List<Autor> GetAuthors(string? bookTitle = null);
 
-	}
+
+    }
 }

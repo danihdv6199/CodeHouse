@@ -50,13 +50,13 @@ namespace LinqLibros.Clases
 					select b).First();
 		}
 
-		public List<Autor> GetAuthors(string bookTitle = null)
+		public List<Autor> GetAuthors(string? bookTitle = null) //para poner parametros opcionales, ponemos valores por defecto
 		{
 			return (from a in authorList
 					join b in bookList on a.AuthorId equals b.AuthorId
-					where string.IsNullOrEmpty(bookTitle)
+					where string.IsNullOrEmpty(bookTitle) //filtro opcional, si llega nulo -> nada
 						|| b.Title.StartsWith(bookTitle)
-					select a).ToList();
+					select a).Distinct().ToList();
 		}
 	}
 }

@@ -32,6 +32,15 @@ Console.WriteLine("\n------------------------LIbro mas antiguo------------------
 Book oldestBook = dataService.GetOldestBook();
 Console.WriteLine($"El libro mas antiguo es {oldestBook.Title}");
 
+Console.WriteLine("\n------------------------Autores que tienen libros publicados que comienzan por EL----------------------\n");
+
+List<Autor> autors = dataService.GetAuthors("El");
+
+foreach(Autor a in autors)
+{
+	Console.WriteLine($"El autor {a.Name} tiene libros que comienzan por El");
+}
+
 void ImprimirVentas(List<Book> listBook)
 {
 	foreach(Book b in listBook)
