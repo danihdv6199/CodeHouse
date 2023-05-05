@@ -14,7 +14,7 @@ namespace LinqLibros.Interfaz
 		List<Book> GetBooks50Years();
 		Book GetOldestBook();
 		List<Autor> GetAuthors(string? bookTitle = null);
-
+		AutorResponse GetAuthorBestPublisher();
 
     }
 }

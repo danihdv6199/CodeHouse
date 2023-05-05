@@ -41,6 +41,13 @@ foreach(Autor a in autors)
 	Console.WriteLine($"El autor {a.Name} tiene libros que comienzan por El");
 }
 
+
+Console.WriteLine("\n----------------------El autor con mas libros publicados--------------------\n");
+
+AutorResponse autorBestPublisher = dataService.GetAuthorBestPublisher();
+Console.WriteLine($"El autor {autorBestPublisher.AuthorName} tiene {autorBestPublisher.BookPublished} libros");
+
+
 void ImprimirVentas(List<Book> listBook)
 {
 	foreach(Book b in listBook)

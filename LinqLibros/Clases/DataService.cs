@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LinqLibros.Clases
 {
-    public class DataService: IDataService
+	public class DataService : IDataService
 	{
 		private List<Book> bookList { get; set; }
 		private List<Autor> authorList { get; set; }
@@ -23,8 +23,8 @@ namespace LinqLibros.Clases
 		public List<Book> GetTop3BookMaxSales()
 		{
 			return (from b in bookList
-						orderby b.Sales descending
-						select b)
+					orderby b.Sales descending
+					select b)
 						.Take(3).ToList();
 
 		}
@@ -58,5 +58,60 @@ namespace LinqLibros.Clases
 						|| b.Title.StartsWith(bookTitle)
 					select a).Distinct().ToList();
 		}
+
+		public List<AutorResponse> GetAuthorsAndBooksPublished()
+		{
+			//La key de una agrupacion es el campo por el que estemos agrupando, en este caso AuthorId
+			return (from b in bookList
+					group b by b.AuthorId into bookGroup
+					join a in authorList on bookGroup.Key equals a.AuthorId
+					select new AutorResponse
+					{
+						AuthorName = a.Name,
+						BookPublished = bookGroup.Count(),
+					}).ToList();
+		}
+		public List<AutorResponse> GetAuthorsAndBooksPublished2()
+		{
+			return (from a in authorList
+					select new AutorResponse
+					{
+						AuthorName = a.Name,
+						BookPublished = bookList.Where(b => b.AuthorId == a.AuthorId).Count()
+						//from b in bookList
+						//where b.AuthorId == a.AuthorId
+						//select b).Count()
+					}).ToList();
+		}
+        public List<AutorResponse> GetAuthorsAndBooksPublished3()
+        {
+			List<AutorResponse> result = new List<AutorResponse>();
+			foreach(Autor author in authorList)
+			{
+				result.Add(
+					new AutorResponse
+					{
+						AuthorName = author.Name,
+						//En vez de hacer lambda se puede hacer otro foreach
+						BookPublished = bookList.Where(b => b.AuthorId == author.AuthorId).Count()
+					}
+					);
+			}
+			return result;
+        }
+
+        public AutorResponse GetAuthorBestPublisher()
+		{
+			return (from b in bookList
+					group b by b.AuthorId into bookGroup
+					orderby bookGroup.Count() descending
+					join a in authorList on bookGroup.Key equals a.AuthorId
+					select new AutorResponse
+					{
+						AuthorName = a.Name,
+						BookPublished = bookGroup.Count()
+					}).First();
+		}
 	}
+	
 }
