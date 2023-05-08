@@ -43,10 +43,40 @@ foreach(Autor a in autors)
 
 
 Console.WriteLine("\n----------------------El autor con mas libros publicados--------------------\n");
-
 AutorResponse autorBestPublisher = dataService.GetAuthorBestPublisher();
 Console.WriteLine($"El autor {autorBestPublisher.AuthorName} tiene {autorBestPublisher.BookPublished} libros");
 
+
+Console.WriteLine("\n----------------------Libros publicados por autor--------------------\n");
+List<AutorResponse> booksPublished = dataService.GetAuthorsAndBooksPublished();
+
+foreach(AutorResponse a in booksPublished)
+{
+	Console.WriteLine($"El autor{a.AuthorName} tiene publicados {a.BookPublished} libros");
+}
+
+
+Console.WriteLine("\n----------------------LIbros y autores join--------------------\n");
+List<BookResponse> booksJoinAuthor = dataService.GetBooksJoinAuthor();
+foreach(BookResponse b in booksJoinAuthor)
+{
+	Console.WriteLine($"El libro {b.BookTitle} fue escrito por {b.AuthorName}");
+}
+
+Console.WriteLine("\n----------------------LIbros y autores LeftJoin--------------------\n");
+List<BookResponse> booksleftJoinAuthor = dataService.GetBooksLeftJoinAuthor();
+foreach (BookResponse b in booksleftJoinAuthor)
+{
+	Console.WriteLine($"El libro {b.BookTitle} fue escrito por {b.AuthorName}");
+}
+
+
+Console.WriteLine("\n----------------------LIbros y autores LeftJoin paginados--------------------\n");
+BookResponsePaginated leftJoinPaginated = dataService.GetBooksLeftJoinAuthorPaginated(1, 5);
+foreach (BookResponse b in leftJoinPaginated.Books)
+{
+	Console.WriteLine($"El libro {b.BookTitle} fue escrito por {b.AuthorName}");
+}
 
 void ImprimirVentas(List<Book> listBook)
 {

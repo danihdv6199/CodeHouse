@@ -15,6 +15,10 @@ namespace LinqLibros.Interfaz
 		Book GetOldestBook();
 		List<Autor> GetAuthors(string? bookTitle = null);
 		AutorResponse GetAuthorBestPublisher();
+		List<AutorResponse> GetAuthorsAndBooksPublished();
+		List<BookResponse> GetBooksJoinAuthor();
+		List<BookResponse> GetBooksLeftJoinAuthor();
+		BookResponsePaginated GetBooksLeftJoinAuthorPaginated(int page, int itemsPerPage);
 
-    }
+	}
 }

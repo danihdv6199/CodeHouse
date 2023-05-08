@@ -112,6 +112,56 @@ namespace LinqLibros.Clases
 						BookPublished = bookGroup.Count()
 					}).First();
 		}
+
+		public List<BookResponse> GetBooksJoinAuthor()
+		{
+			return (from b in bookList
+					join a in authorList on b.AuthorId equals a.AuthorId
+					select new BookResponse
+					{
+						AuthorName = a.Name,
+						BookTitle = b.Title
+					}
+						).ToList();
+		}
+
+		public List<BookResponse> GetBooksLeftJoinAuthor()
+		{
+			return (from b in bookList
+					join a in authorList on b.AuthorId equals a.AuthorId into authorBooks
+					from authBook in authorBooks.DefaultIfEmpty()
+					select new BookResponse
+					{
+						AuthorName = authBook == null ? "Anonimo" : authBook.Name,
+						BookTitle = b.Title
+					}
+					 ).ToList();
+		}
+
+		public BookResponsePaginated GetBooksLeftJoinAuthorPaginated( int page, int itemsPerPage)
+		{
+			BookResponsePaginated result = new BookResponsePaginated();
+
+			var query = from b in bookList
+						join a in authorList on b.AuthorId equals a.AuthorId into authorBooks
+						from authBook in authorBooks.DefaultIfEmpty()
+						select new BookResponse
+						{
+							
+							AuthorName = authBook == null ? "Anonimo" : authBook.Name,
+							BookTitle = b.Title
+						};
+
+			result.Total = query.Count();
+			result.Page = page;
+			result.ItemsPerPage = itemsPerPage;
+			int skip = (page-1) * itemsPerPage;
+
+			result.Books = query.Skip(skip).Take(itemsPerPage).ToList();
+
+			return result;
+		}
+
 	}
-	
+
 }

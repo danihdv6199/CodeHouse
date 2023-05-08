@@ -42,7 +42,9 @@ namespace LinqLibros.Clases
                 new Book("El león, la bruja y el armario", 8, 1950, 85),
                 new Book("El código Da Vinci", 9, 2003, 80),
                 new Book("El guardián entre el centeno", 10, 1951, 65),
-                new Book("El alquimista", 11, 1988, 65),};
+                new Book("El alquimista", 11, 1988, 65),
+                new Book("El Lazarillo de Tormes", null, 1558, 335),
+			};
         }
     }
 }
