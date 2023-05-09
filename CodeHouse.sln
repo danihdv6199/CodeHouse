@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq", "Linq\Linq.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqLibros", "LinqLibros\LinqLibros.csproj", "{47A6B23C-AF61-40E3-8DC0-B429BBFA574A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqAlumnosProfesores", "LinqAlumnosProfesores\LinqAlumnosProfesores.csproj", "{EAC7672F-CF9C-43C5-8B97-C791B0873913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqAlumnosProfesores", "LinqAlumnosProfesores\LinqAlumnosProfesores.csproj", "{EAC7672F-CF9C-43C5-8B97-C791B0873913}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqCompleto", "LinqCompleto\LinqCompleto.csproj", "{6E03462D-20D6-442D-BB38-83006A790CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EAC7672F-CF9C-43C5-8B97-C791B0873913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAC7672F-CF9C-43C5-8B97-C791B0873913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAC7672F-CF9C-43C5-8B97-C791B0873913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E03462D-20D6-442D-BB38-83006A790CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E03462D-20D6-442D-BB38-83006A790CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E03462D-20D6-442D-BB38-83006A790CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E03462D-20D6-442D-BB38-83006A790CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
