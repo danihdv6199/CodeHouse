@@ -9,8 +9,7 @@ namespace LinqCompleto.Entidades
 	public class ProfesorExtendido
 	{
 		public string NombreProfesor { get; set; }
-		public DateTime FEchaDeNacimientoProfesor { get; set; }
-		public double NotaMediaProfesor { get; set; }
+		public DateTime FechaDeNacimientoProfesor { get; set; }
 		public string NombreClase { get; set; }
 		public string NombreProblacion { get; set; }
 	}

@@ -31,7 +31,7 @@ namespace LinqCompleto.Clases
 						join p in ListaPoblaciones on a.PoblacionId equals p.Id
 						//Primero valida si filtronombre es nulo, si se cumple no valida lo segundo, si no se cumple lo primero valida lo segundo y asi sucesivamente 
 						where(string.IsNullOrEmpty(filtroNombre) || a.Nombre.StartsWith(filtroNombre))
-							&& (notaMedia == null || notaMediaLinq >= notaMedia)
+							&& (notaMedia == null || notaMediaLinq >= notaMedia )
 							&& (fechaDesde == null || a.FechaDeNacimiento >= fechaDesde)
 							&& (fechaHasta == null || a.FechaDeNacimiento <=fechaHasta)
 						select new AlumnoExtendido

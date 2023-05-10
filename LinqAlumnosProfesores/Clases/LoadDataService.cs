@@ -19,21 +19,24 @@ namespace LinqAlumnosProfesores.Clases
 					Nombre = "Ismael",
 					Apellidos = "De la poza",
 					Edad = 32,
-					Clase =".Net"
+					Clase =".Net",
+					PaisId = 1
 				},
 				new Alumno
 				{
 					Nombre = "Juan",
 					Apellidos = "Martinez",
 					Edad = 33,
-					Clase =".Net"
+					Clase =".Net",
+					PaisId = 2
 				},
 				new Alumno
 				{
 					Nombre = "Raul",
 					Apellidos = "Val Peral",
 					Edad = 18,
-					Clase ="Javascript"
+					Clase ="Javascript",
+					PaisId = 3
 				},
 			};
 		}
@@ -59,6 +62,28 @@ namespace LinqAlumnosProfesores.Clases
 
 				},
 			};
+		}
+		public List<Pais> LoadPaises()
+		{
+			return new List<Pais>
+			{
+				new Pais
+				{
+					Id =1,
+					Nombre = "España"
+				},
+                new Pais
+                {
+                    Id =2,
+                    Nombre = "Francia"
+                },
+                new Pais
+                {
+                    Id =1,
+                    Nombre = "Portugal"
+                },
+            };
+
 		}
 	}
 }

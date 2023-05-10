@@ -13,5 +13,6 @@ namespace LinqAlumnosProfesores.Entidades
 		public int Edad { get; set; }
 		public string Clase { get; set; }
 		public int Nota { get; set; }
+		public string Pais { get; set; }
 	}
 }

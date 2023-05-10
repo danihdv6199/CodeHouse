@@ -11,5 +11,6 @@ namespace LinqAlumnosProfesores.Interfaces
 	{
 		List<Alumno> LoadAlumnos();
 		List<Profesor> LoadProfesor();
-	}
+		List<Pais> LoadPaises();
+    }
 }
