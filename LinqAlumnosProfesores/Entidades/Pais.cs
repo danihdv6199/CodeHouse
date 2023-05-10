@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LinqAlumnosProfesores.Entidades
 {
-    internal class Pais
+    public class Pais
     {
+        public int Id { get; set; }
+        public string Nombre {  get; set; }
     }
 }
