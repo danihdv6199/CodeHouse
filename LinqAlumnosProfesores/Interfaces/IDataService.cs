@@ -10,5 +10,7 @@ namespace LinqAlumnosProfesores.Interfaces
 	public interface IDataService
 	{
 		List<EstudianteExtendido> estudiantesFiltradosNota9();
-	}
+		List<EstudianteExtendido> estudianteExtendidos2(string? pais = null);
+
+    }
 }

@@ -38,12 +38,15 @@ namespace LinqAlumnosProfesores.Clases
 			return query.ToList();
 		}
 		//misma anterior añadiendo nombre pais
-		public List<EstudianteExtendido> estudianteExtendidos2()
+		public List<EstudianteExtendido> estudianteExtendidos2(string? pais =null)
 		{
 			List<EstudianteExtendido> estudiantes = estudiantesFiltradosNota9();
-			var query = from a in estudiantes
-									//Desde donde quieres unir | Donde apunta
-						join p in listaPais	    	on a.Pais equals p.Id
+			var query = from a in listaAlumnos
+                        
+								//Desde donde quieres unir | Donde apunta
+                        join p in listaPais on a.PaisId equals p.Id
+                        where a.Edad > 30 && a.Clase == ".Net" &&
+                         (pais == null || p.Nombre.StartsWith(pais))
 						select new EstudianteExtendido
 						{
 							Pais = p.Nombre,
