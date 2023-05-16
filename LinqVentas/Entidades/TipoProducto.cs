@@ -5,7 +5,7 @@ namespace _27_EjercicioLinqVentas.Entidades
 {
     public class TipoProducto
     {
-
+        [Key]
         public int Id { get; set; }
 
 
