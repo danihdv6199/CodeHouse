@@ -1,4 +1,19 @@
+using Bootcamp.CrossCutting.Configuration;
+using Bootcamp.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+IoC.Register(builder.Services, builder.Configuration);
+
+string mySqlConnectionStr = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ApplicationDbContext>(
+    item => item.UseMySql(
+        mySqlConnectionStr,
+        ServerVersion.AutoDetect(mySqlConnectionStr)
+        )
+    );
 
 // Add services to the container.
 
