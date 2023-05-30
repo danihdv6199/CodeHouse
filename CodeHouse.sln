@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqCompleto", "LinqComplet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqVentas", "LinqVentas\LinqVentas.csproj", "{6E6F4631-268A-400D-BC89-112662ABC4CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.DataAccess", "Bootcamp.DataAccess\Bootcamp.DataAccess.csproj", "{8843F718-F0A1-4A61-9123-2A8A79FD239C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.DataAccess", "Bootcamp.DataAccess\Bootcamp.DataAccess.csproj", "{8843F718-F0A1-4A61-9123-2A8A79FD239C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinqEjercicios", "LinqEjercicios", "{BFBFFAF4-3071-4BC5-A0A1-CBAF2DF60980}"
 EndProject
@@ -31,17 +31,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - DataAccess", "4 - DataA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Cross-Cutting", "5 - Cross-Cutting", "{905839FF-6F27-44BA-A5BD-BF1B9F530E16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.DataAccess.Contracts", "Bootcamp.DataAccess.Contracts\Bootcamp.DataAccess.Contracts.csproj", "{8DD5E040-77FE-4CD4-8BA6-553BE0482670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.DataAccess.Contracts", "Bootcamp.DataAccess.Contracts\Bootcamp.DataAccess.Contracts.csproj", "{8DD5E040-77FE-4CD4-8BA6-553BE0482670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.BusinessModels", "Bootcamp.BusinessModels\Bootcamp.BusinessModels.csproj", "{396096A0-D86A-46DC-BF71-153D2811BFF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.BusinessModels", "Bootcamp.BusinessModels\Bootcamp.BusinessModels.csproj", "{396096A0-D86A-46DC-BF71-153D2811BFF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.Application", "Bootcamp.Application\Bootcamp.Application.csproj", "{CEC9C368-E0D9-4020-8547-46AC9049AFEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.Application", "Bootcamp.Application\Bootcamp.Application.csproj", "{CEC9C368-E0D9-4020-8547-46AC9049AFEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.Application.Contracts", "Bootcamp.Application.Contracts\Bootcamp.Application.Contracts.csproj", "{AE5CC4A6-A645-4E8C-9CAA-20E13892E547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.Application.Contracts", "Bootcamp.Application.Contracts\Bootcamp.Application.Contracts.csproj", "{AE5CC4A6-A645-4E8C-9CAA-20E13892E547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.CrossCutting", "Bootcamp.CrossCutting\Bootcamp.CrossCutting.csproj", "{2DDC24E6-340E-4548-88CC-6F57DEDDF2B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.CrossCutting", "Bootcamp.CrossCutting\Bootcamp.CrossCutting.csproj", "{2DDC24E6-340E-4548-88CC-6F57DEDDF2B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootcamp.API", "Bootcamp.API\Bootcamp.API.csproj", "{4BB9332F-25EF-4A61-9779-220B8583F0D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootcamp.API", "Bootcamp.API\Bootcamp.API.csproj", "{4BB9332F-25EF-4A61-9779-220B8583F0D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

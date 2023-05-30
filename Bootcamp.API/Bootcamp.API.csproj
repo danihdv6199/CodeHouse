@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Bootcamp.Application.Contracts\Bootcamp.Application.Contracts.csproj" />
     <ProjectReference Include="..\Bootcamp.CrossCutting\Bootcamp.CrossCutting.csproj" />
     <ProjectReference Include="..\Bootcamp.DataAccess\Bootcamp.DataAccess.csproj" />
   </ItemGroup>

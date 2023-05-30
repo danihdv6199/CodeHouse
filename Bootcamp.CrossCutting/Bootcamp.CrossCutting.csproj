@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bootcamp.Application.Contracts\Bootcamp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Bootcamp.Application\Bootcamp.Application.csproj" />
     <ProjectReference Include="..\Bootcamp.DataAccess.Contracts\Bootcamp.DataAccess.Contracts.csproj" />
     <ProjectReference Include="..\Bootcamp.DataAccess\Bootcamp.DataAccess.csproj" />
   </ItemGroup>

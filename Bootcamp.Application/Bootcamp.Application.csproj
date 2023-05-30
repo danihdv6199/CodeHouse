@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bootcamp.Application.Contracts\Bootcamp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Bootcamp.BusinessModels\Bootcamp.BusinessModels.csproj" />
+    <ProjectReference Include="..\Bootcamp.DataAccess.Contracts\Bootcamp.DataAccess.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

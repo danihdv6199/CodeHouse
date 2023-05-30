@@ -1,5 +1,9 @@
-﻿using Bootcamp.DataAccess;
+﻿using Bootcamp.Application.Contracts.Servicies;
+using Bootcamp.Application.Servicies;
+using Bootcamp.DataAccess;
 using Bootcamp.DataAccess.Contracts;
+using Bootcamp.DataAccess.Contracts.Repositories;
+using Bootcamp.DataAccess.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,6 +19,8 @@ namespace Bootcamp.CrossCutting.Configuration
         public static IServiceCollection Register(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             return services;
         }
     }
