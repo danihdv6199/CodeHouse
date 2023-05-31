@@ -10,7 +10,7 @@ namespace Bootcamp.DataAccess.Contracts.Repositories
     public interface IProductRepository
     {
         ProductDto? GetProductByCode(string productCode);
-        void DeleteProduct(string productCode);
+        void DeleteProduct(ProductDto productDto);
         ProductDto AddProduct(ProductDto product);
         ProductDto? UpdateProduct(ProductDto product);
     }

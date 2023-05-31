@@ -1,6 +1,7 @@
 ﻿using Bootcamp.Application.Contracts.Servicies;
 using Bootcamp.BusinessModels.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 
 namespace Bootcamp.API.Controllers
 {
@@ -15,7 +16,7 @@ namespace Bootcamp.API.Controllers
             _productService = productService;
         }
 
-
+        //api/productos/{code}
         [HttpGet]
         [Route("{code}")]
         [ProducesResponseType(typeof(ProductResponse), StatusCodes.Status200OK)]
@@ -33,6 +34,59 @@ namespace Bootcamp.API.Controllers
             else
             {
                 return NoContent();
+            }
+        }
+
+        //api/productos/{code}
+        [HttpDelete]
+        [Route("{code}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteProduct(string code)
+        {
+            bool result = _productService.DeleteProduct(code);
+            if (result)
+                return NoContent();
+            else
+                return NotFound("El producto no existe");
+        }
+
+        //api/productos
+        [HttpPost]
+        [ProducesResponseType(typeof(ProductResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //Transforma el json en un CreateProductRequest automaticamente
+        public IActionResult AddProduct(CreateProductRequest request)
+        {
+            ProductResponse? product = _productService.AddProduct(request);
+            if (product != null)
+            {
+                return Ok(product);
+            }
+            else
+            {
+                return Conflict("El producto ya existe");
+            }
+        }
+
+        //api/productos/{code}       
+        [HttpPut]
+        [Route("{code}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //Transforma el json en un CreateProductRequest automaticamente
+        public IActionResult AddProduct(string code, UpdateProductRequest request)
+        {
+            ProductResponse? product = _productService.UpdateProduct(code, request);
+            if (product != null)
+            {
+                return Ok(product);
+            }
+            else
+            {
+                return NotFound("El producto no existe");
             }
         }
     }

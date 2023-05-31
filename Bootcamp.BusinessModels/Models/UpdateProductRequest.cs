@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bootcamp.BusinessModels.Models
 {
-    public class ProductResponse
+    public class UpdateProductRequest
     {
-        public string Code { get; set; } = null!;
 
         public string Name { get; set; } = null!;
 
