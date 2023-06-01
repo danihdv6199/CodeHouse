@@ -1,5 +1,6 @@
 ﻿using Bootcamp.Application.Contracts.Servicies;
 using Bootcamp.BusinessModels.Models;
+using Bootcamp.BusinessModels.Models.Product;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
@@ -37,6 +38,19 @@ namespace Bootcamp.API.Controllers
             {
                 return NoContent();
             }
+        }
+
+        //api/products/paginated
+        [HttpPost]
+        [Route("paginated")]
+        [ProducesResponseType(typeof(PaginatedResponse<ProductResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public IActionResult GetProductsPaginated(ProductSearchRequest request)
+        {
+            var products = _productService.GetProductsPaginated(request);
+
+            return Ok(products);
         }
 
         //api/productos/{code}

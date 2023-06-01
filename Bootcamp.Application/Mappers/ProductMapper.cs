@@ -1,4 +1,4 @@
-﻿using Bootcamp.BusinessModels.Models;
+﻿using Bootcamp.BusinessModels.Models.Product;
 using Bootcamp.DataAccess.Contracts.Models;
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,15 @@ namespace Bootcamp.Application.Mappers
                 Scale = product.ProductScale,
                 Vendor = product.ProductVendor
             };
+        }
+
+        public static List<ProductResponse> MapToProductResponseListFromDtoList(List<ProductDto> products)
+        {
+            var query = from p in products
+                        select MapToProductResponseFromProductDto(p);
+            return query.ToList();
+
+            //return products.Select(p => MapToProductResponseFromProductDto(p)).ToList();
         }
     }
 }

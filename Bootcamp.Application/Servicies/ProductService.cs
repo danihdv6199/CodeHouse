@@ -1,6 +1,7 @@
 ﻿using Bootcamp.Application.Contracts.Servicies;
 using Bootcamp.Application.Mappers;
 using Bootcamp.BusinessModels.Models;
+using Bootcamp.BusinessModels.Models.Product;
 using Bootcamp.DataAccess.Contracts;
 using Bootcamp.DataAccess.Contracts.Models;
 using Bootcamp.DataAccess.Contracts.Repositories;
@@ -34,6 +35,20 @@ namespace Bootcamp.Application.Servicies
                 return result;
             }
             else return null;
+        }
+
+        public PaginatedResponse<ProductResponse> GetProductsPaginated(ProductSearchRequest request)
+        {
+            PaginatedResponse<ProductResponse> result = new PaginatedResponse<ProductResponse>();
+
+            PaginatedDto<ProductDto> search = _productRepository.GetProductPaginated(request.Description, request.Page, request.ItemsPerPage);
+
+            result.Results =ProductMapper.MapToProductResponseListFromDtoList(search.Results);
+            result.Total = search.Total;
+            result.Page = search.Page;
+            result.ItemsPerPage = search.ItemsPerPage;
+
+            return result;
         }
 
         public bool DeleteProduct(string productCode)

@@ -4,6 +4,7 @@ using Bootcamp.DataAccess.Entities;
 using Bootcamp.DataAccess.Mappers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,23 @@ namespace Bootcamp.DataAccess.Repositories
                         where p.ProductCode == productCode
                         select ProductMapper.MaptToProductDtoFromProduct(p);
             return query.FirstOrDefault();
+        }
+
+
+        public PaginatedDto<ProductDto> GetProductPaginated(string description = null, int page = 1, int itemsPerPage = 5)
+        {
+            PaginatedDto<ProductDto> result = new PaginatedDto<ProductDto>();
+
+            var query = from p in _context.Products
+                        where (string.IsNullOrEmpty(description) || p.ProductDescription.Contains(description))
+                        select ProductMapper.MaptToProductDtoFromProduct(p);
+
+            result.Total = query.Count();
+            int skip = (page - 1) * itemsPerPage;
+            result.Page = page;
+            result.ItemsPerPage = itemsPerPage;
+            result.Results = query.Skip(skip).Take(itemsPerPage).ToList();
+            return result;
         }
 
         public void DeleteProduct(ProductDto productDto)
@@ -79,6 +97,8 @@ namespace Bootcamp.DataAccess.Repositories
                 };
             return result;
         }
+
+
       
     }
    

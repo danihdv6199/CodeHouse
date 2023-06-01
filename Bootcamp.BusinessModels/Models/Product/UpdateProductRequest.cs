@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bootcamp.BusinessModels.Models
+namespace Bootcamp.BusinessModels.Models.Product
 {
-    public class CreateProductRequest //Accion nombre peticion
+    public class UpdateProductRequest
     {
-        [Required]
-        [MaxLength(15,ErrorMessage = "El campo code no puede tener una long mayor 15")]
-        public string Code { get; set; } = null!;
         [Required]
 
         public string Name { get; set; } = null!;
@@ -21,8 +18,8 @@ namespace Bootcamp.BusinessModels.Models
         [Required]
 
         public string Scale { get; set; } = null!;
-        [Required]
 
+        [Required]
         public string Vendor { get; set; } = null!;
         [Required]
 
