@@ -6,6 +6,7 @@ using Bootcamp.DataAccess.Contracts.Models;
 using Bootcamp.DataAccess.Contracts.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,9 @@ namespace Bootcamp.Application.Servicies
 
         public ProductResponse? AddProduct(CreateProductRequest request)
         {
+            //if (string.IsNullOrEmpty(request.Code) || request.Code.Length > 15 )
+            //    return new ProductResponse { Error = "El campo Code no esta informado o excede su longitud"};
+
             ProductDto? product = _productRepository.GetProductByCode(request.Code);
             if (product == null)
             {
@@ -72,6 +76,7 @@ namespace Bootcamp.Application.Servicies
 
         public ProductResponse? UpdateProduct(string code, UpdateProductRequest request)
         {
+
             ProductDto? existingProduct = _productRepository.GetProductByCode(code);
             if (existingProduct != null)
             {

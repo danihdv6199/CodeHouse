@@ -1,10 +1,12 @@
 ﻿using Bootcamp.Application.Contracts.Servicies;
 using Bootcamp.BusinessModels.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
 namespace Bootcamp.API.Controllers
 {
+    //QueryString
     //api/products (No tiene en cuenta mayus o minus)
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +25,7 @@ namespace Bootcamp.API.Controllers
         [ProducesResponseType( StatusCodes.Status204NoContent)]
         [ProducesResponseType( StatusCodes.Status500InternalServerError)]
         //IActionResult, es el tipo de objeto que devuelve un endopoint de un controlador
-        public IActionResult GetProductByCode(string code)
+        public IActionResult GetProductByCode([Required] string code)
         {
             ProductResponse? product = _productService.GetProductByCode(code);
 
@@ -43,7 +45,7 @@ namespace Bootcamp.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult DeleteProduct(string code)
+        public IActionResult DeleteProduct([Required] string code)
         {
             bool result = _productService.DeleteProduct(code);
             if (result)
@@ -62,7 +64,10 @@ namespace Bootcamp.API.Controllers
             ProductResponse? product = _productService.AddProduct(request);
             if (product != null)
             {
-                return Ok(product);
+                if (string.IsNullOrEmpty(product.Error))
+                    return Ok(product);
+                else
+                    return BadRequest(product.Error);
             }
             else
             {
@@ -77,7 +82,7 @@ namespace Bootcamp.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         //Transforma el json en un CreateProductRequest automaticamente
-        public IActionResult AddProduct(string code, UpdateProductRequest request)
+        public IActionResult AddProduct([Required (ErrorMessage ="Codigo obligatorio")][MaxLength(15)]string code, UpdateProductRequest request)
         {
             ProductResponse? product = _productService.UpdateProduct(code, request);
             if (product != null)
